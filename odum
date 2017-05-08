@@ -1,0 +1,33 @@
+var source = 1000;
+var prey = 10
+var pred = 5
+var k1 = 0.001
+var k2 = 0.05
+var k3 = 0.1
+var k4 = 0.02
+var k5 = 0.3
+var dt = 0.05
+
+function setup() {
+    createCanvas(600, 400);   
+}
+
+function draw() {
+    //backgournd
+    background(250, 250, 100);
+    
+    //source
+    fill(250,200,200);
+    ellipse(100, 100, source, source);
+    
+    //prey
+    fill(200, 250, 200);
+    ellipse(150, 100, prey, prey);
+    
+    //pred
+    fill(200, 250, 100);
+    ellipse(200, 100, pred, pred);
+    
+    prey = ((k1*source*prey)-(k2*prey)-(k3*prey*pred))dt
+    
+    pred = ((k4*pred*prey)-(k5*pred))dt
